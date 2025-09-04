@@ -2,7 +2,7 @@
 -- To get access to the functions, you need to put:
 -- require "my_directory.my_file"
 -- in any script using the functions.
--- test
+
 local game = {}
 
 game.cSdk = require("colyseus.sdk")
