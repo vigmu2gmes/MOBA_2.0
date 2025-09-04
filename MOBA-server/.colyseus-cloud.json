@@ -1,6 +1,4 @@
-
 {
-  // trying to add deployment to Colyseus Cloud
   "production": {
     "applicationId": "1098-moba-demo",
     "token": "NjhhMzdmZjk1Zjk0MTJuOTJBTWpHNlRneGFTUW5Fc2M1MEpSVnR2aVdLNzky"
