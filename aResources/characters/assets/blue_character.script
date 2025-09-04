@@ -29,8 +29,10 @@ end
 
 function update(self, dt)
 	go.set_position(go.get_position() + self.direction * self.speed * dt)
-
+	
 	self.direction = vmath.vector3()
+	local pos = go.get_position()
+	msg.post("#blue_character_gui", "gui_position", { x = pos.x, y = pos.y })
 end
 
 function on_input(self, action_id, action)

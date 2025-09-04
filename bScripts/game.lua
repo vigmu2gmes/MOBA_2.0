@@ -33,6 +33,8 @@ function game.start()
 end
 
 function game.callbacks()
+	game.gui_nodes = game.gui_nodes or {}
+	
 	game.cb:on_add("players", function(player, sessionId) 
 		if player.id % 2 == 0 then
 			factory.create("/characters#red_character", vmath.vector3(player.x, player.y, 0))
@@ -41,6 +43,12 @@ function game.callbacks()
 			factory.create("/characters#blue_character", vmath.vector3(player.x, player.y, 0))
 			game.gui_position = vmath.vector3(player.x, player.y + 30, 0)
 		end
+	end)
+end
+
+function game.gui_position(x, y)
+	game.cb:listen("move", function()
+		print(x, y)
 	end)
 end
 

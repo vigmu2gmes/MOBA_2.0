@@ -46,7 +46,6 @@ export class MyRoom extends Room<MyRoomState> {
     const player = this.state.players.get(client.sessionId);
     if (player) {
       player.hp -= damage.damage;
-      console.log(player.hp);
       if (player.hp < 0) player.hp = 0;
       if (player.hp === 0) {
         console.log("DEATH");

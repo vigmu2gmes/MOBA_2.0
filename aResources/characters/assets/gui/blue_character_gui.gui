@@ -5,6 +5,7 @@ fonts {
 }
 nodes {
   position {
+    x: -46.0
     y: 89.0
     z: 1.0
   }
@@ -18,13 +19,12 @@ nodes {
   }
   type: TYPE_BOX
   id: "health_bar"
-  xanchor: XANCHOR_LEFT
   pivot: PIVOT_W
   inherit_alpha: true
 }
 nodes {
   position {
-    x: 133.0
+    x: 40.0
   }
   size {
     x: 30.0

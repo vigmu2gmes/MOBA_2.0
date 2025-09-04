@@ -2,7 +2,6 @@
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("collision_response") then
-
 		if message.other_group == hash("player") then
 			go.animate(".", "position", go.PLAYBACK_ONCE_FORWARD, go.get_position(message.other_id), go.EASING_LINEAR, 1)
 		elseif message.other_group == hash("blue_hitbox") then

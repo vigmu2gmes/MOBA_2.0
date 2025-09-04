@@ -31,12 +31,7 @@ end
 function on_message(self, message_id, message, sender)
 	if message_id == hash("start_game") then
 		g.callbacks()
-		
-	elseif message_id == hash("hit") then
-		g.room:send("damage", { amount = 20 })
-	end
-
-	if message_id == hash("projectile") then
+	elseif message_id == hash("projectile") then
 		if message.pos == hash("tower_atk") then
 			factory.create("/projectile#projectile", vmath.vector3(475, 506, 0))
 			if message.d == false then
