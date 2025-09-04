@@ -1,0 +1,72 @@
+script: "/aResources/GUI/lobby/lobby.gui_script"
+fonts {
+  name: "default"
+  font: "/builtins/fonts/default.font"
+}
+nodes {
+  position {
+    x: 480.0
+    y: 320.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_BOX
+  id: "box"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  scale {
+    x: 2.5
+    y: 3.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    x: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "ENTER GAME"
+  font: "default"
+  id: "enter"
+  parent: "box"
+  inherit_alpha: true
+  enabled: false
+}
+nodes {
+  position {
+    x: 375.0
+    y: 425.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "PLAYER COUNT:"
+  font: "default"
+  id: "text"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 113.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "00"
+  font: "default"
+  id: "player_count"
+  parent: "text"
+  inherit_alpha: true
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT

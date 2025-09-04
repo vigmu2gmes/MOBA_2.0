@@ -1,0 +1,49 @@
+local function anim_reset()
+	sprite.play_flipbook("#sprite", "idle")
+end
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+
+	self.direction = vmath.vector3()
+	self.speed = 400
+
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("contact_point_response") then
+		
+	elseif message_id == hash("collision_response") then
+		msg.post("match:/env#match", "projectile", { pos = message.other_group, d = false })		
+	end
+
+	if message_id == hash("death") then
+		go.delete()
+		msg.post("#red_character_gui", "spawn")
+		msg.post(msg.url("match", "/env", "game"), "spawn")
+	end
+end
+
+function update(self, dt)
+	go.set_position(go.get_position() + self.direction * self.speed * dt)
+
+	self.direction = vmath.vector3()
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("up") then
+		self.direction.y = 1
+		self.direction.x = 0
+	elseif action_id == hash("down") then
+		self.direction.y = -1
+		self.direction.x = 0
+	elseif action_id == hash("left") then
+		self.direction.x = -1
+		self.direction.y = 0
+	elseif action_id == hash("right") then
+		self.direction.x = 1
+		self.direction.y = 0
+	elseif action_id == hash("attack") then
+		sprite.play_flipbook("#sprite", "punch", anim_reset)
+	end
+end

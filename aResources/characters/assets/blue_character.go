@@ -1,0 +1,76 @@
+components {
+  id: "blue_character_gui"
+  component: "/aResources/characters/assets/gui/blue_character_gui.gui"
+}
+components {
+  id: "blue_character"
+  component: "/aResources/characters/assets/blue_character.script"
+}
+embedded_components {
+  id: "sprite"
+  type: "sprite"
+  data: "default_animation: \"idle\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "textures {\n"
+  "  sampler: \"texture_sampler\"\n"
+  "  texture: \"/aResources/characters/assets/blue.atlas\"\n"
+  "}\n"
+  ""
+  scale {
+    x: 0.5
+    y: 0.5
+  }
+}
+embedded_components {
+  id: "hit_box"
+  type: "collisionobject"
+  data: "type: COLLISION_OBJECT_TYPE_KINEMATIC\n"
+  "mass: 0.0\n"
+  "friction: 0.1\n"
+  "restitution: 0.5\n"
+  "group: \"blue_hitbox\"\n"
+  "mask: \"projectile\"\n"
+  "embedded_collision_shape {\n"
+  "  shapes {\n"
+  "    shape_type: TYPE_BOX\n"
+  "    position {\n"
+  "    }\n"
+  "    rotation {\n"
+  "    }\n"
+  "    index: 0\n"
+  "    count: 3\n"
+  "  }\n"
+  "  data: 47.297573\n"
+  "  data: 47.75124\n"
+  "  data: 10.0\n"
+  "}\n"
+  ""
+}
+embedded_components {
+  id: "player_collider"
+  type: "collisionobject"
+  data: "type: COLLISION_OBJECT_TYPE_KINEMATIC\n"
+  "mass: 0.0\n"
+  "friction: 0.1\n"
+  "restitution: 0.5\n"
+  "group: \"player\"\n"
+  "mask: \"border\"\n"
+  "mask: \"sensor\"\n"
+  "mask: \"tower_atk\"\n"
+  "mask: \"tower1_atk\"\n"
+  "embedded_collision_shape {\n"
+  "  shapes {\n"
+  "    shape_type: TYPE_BOX\n"
+  "    position {\n"
+  "    }\n"
+  "    rotation {\n"
+  "    }\n"
+  "    index: 0\n"
+  "    count: 3\n"
+  "  }\n"
+  "  data: 47.297573\n"
+  "  data: 47.75124\n"
+  "  data: 10.0\n"
+  "}\n"
+  ""
+}

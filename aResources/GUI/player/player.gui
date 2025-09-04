@@ -1,0 +1,95 @@
+script: "/aResources/GUI/player/player.gui_script"
+fonts {
+  name: "default"
+  font: "/builtins/fonts/default.font"
+}
+nodes {
+  position {
+    x: 119.0
+    y: 556.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Name:"
+  font: "default"
+  id: "text"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 63.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "<text>"
+  font: "default"
+  id: "text1"
+  parent: "text"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 119.0
+    y: 470.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "HP:"
+  font: "default"
+  id: "text2"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 63.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  font: "default"
+  id: "text3"
+  parent: "text2"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 119.0
+    y: 366.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "TEAM:"
+  font: "default"
+  id: "text4"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 63.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  font: "default"
+  id: "text5"
+  parent: "text4"
+  inherit_alpha: true
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT

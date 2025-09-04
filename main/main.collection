@@ -1,0 +1,14 @@
+name: "main"
+scale_along_z: 0
+embedded_instances {
+  id: "base"
+  data: "components {\n"
+  "  id: \"match\"\n"
+  "  component: \"/main/match/match.script\"\n"
+  "}\n"
+  "components {\n"
+  "  id: \"player\"\n"
+  "  component: \"/aResources/GUI/player/player.gui\"\n"
+  "}\n"
+  ""
+}

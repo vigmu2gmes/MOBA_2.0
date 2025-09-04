@@ -1,0 +1,18 @@
+-- Make a way to show number of players above button and change button to say join when applicable 
+-- players are available to play.
+local g = require("bScripts.game")
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	gui.set_enabled(gui.get_node("enter"), false)
+
+	g.start()
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("touch") and action.pressed then
+		if gui.is_enabled(gui.get_node("enter"), true) then
+			msg.post("loader:/loader#loader", "match")
+		end
+	end
+end

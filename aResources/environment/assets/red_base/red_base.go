@@ -1,0 +1,15 @@
+embedded_components {
+  id: "sprite"
+  type: "sprite"
+  data: "default_animation: \"red_base\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "size {\n"
+  "  x: 480.0\n"
+  "  y: 480.0\n"
+  "}\n"
+  "textures {\n"
+  "  sampler: \"texture_sampler\"\n"
+  "  texture: \"/aResources/environment/assets/environment.atlas\"\n"
+  "}\n"
+  ""
+}

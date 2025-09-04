@@ -1,0 +1,21 @@
+local g = require("bScripts.game")
+
+function init(self)
+	self.hp = vmath.vector4(25, 5, 0, 0)
+	gui.set_size(gui.get_node("health_bar"), self.hp)
+	
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("hit") then
+		self.hp.x = self.hp.x - message.hit
+		gui.set_size(gui.get_node("health_bar"), self.hp)
+		if self.hp.x <= 0 then
+			msg.post("#red_character", "death")
+			gui.set_size(gui.get_node("health_bar"), self.hp)
+		end
+		g.room:send("damage", { damage = message.hit })
+	elseif message_id == hash("spawn") then
+		gui.set_size(gui.get_node("health_bar"), self.hp)
+	end
+end

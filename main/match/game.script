@@ -1,0 +1,52 @@
+--determine player positions - ordered entry into room or random?
+
+-- Put health bars on top of players' heads.
+-- Give towers and bases health bars and destoryed look.
+
+-- Figure out how to spawn and game over flow.
+
+--[[
+BLUE BASE POSITIONS: CENTERED: 200, 281, 0 / UPPER: 100, 400, 0 / LOWER: 100, 150, 0
+RED BASE POSITIONS: CENTERED: 755, 281, 0 / UPPER: 850, 400, 0 / LOWER: 850, 150, 0
+]]
+
+local g = require("bScripts.game")
+
+local function tower_activate()
+	msg.post("/tower#tower1_collider", "enable")
+	msg.post("/tower#tower_collider", "enable")
+end
+
+function init(self)
+	msg.post(".", "start_game")
+	timer.delay(2, true, tower_activate)
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("start_game") then
+		g.callbacks()
+		
+	elseif message_id == hash("hit") then
+		g.room:send("damage", { amount = 20 })
+	end
+
+	if message_id == hash("projectile") then
+		if message.pos == hash("tower_atk") then
+			factory.create("/projectile#projectile", vmath.vector3(475, 506, 0))
+			if message.d == false then
+				msg.post("/tower#tower_collider", "disable")				
+			end
+		elseif message.pos == hash("tower1_atk") then
+			factory.create("/projectile#projectile", vmath.vector3(475, 155, 0))
+			if message.d == false then
+				msg.post("/tower#tower1_collider", "disable")
+			end
+		end
+	end
+end

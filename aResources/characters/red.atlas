@@ -1,0 +1,27 @@
+animations {
+  id: "idle"
+  images {
+    image: "/aResources/characters/png/punch_anim_red/player1.png0001.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  flip_horizontal: 1
+}
+animations {
+  id: "punch"
+  images {
+    image: "/aResources/characters/png/punch_anim_red/player1.png0003.png"
+  }
+  images {
+    image: "/aResources/characters/png/punch_anim_red/player1.png0004.png"
+  }
+  images {
+    image: "/aResources/characters/png/punch_anim_red/player1.png0005.png"
+  }
+  images {
+    image: "/aResources/characters/png/punch_anim_red/player1.png0006.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 6
+  flip_horizontal: 1
+}
+extrude_borders: 2

@@ -1,0 +1,16 @@
+images {
+  image: "/aResources/environment/png/blue_base.png"
+}
+images {
+  image: "/aResources/environment/png/border.png"
+}
+images {
+  image: "/aResources/environment/png/projectile.png"
+}
+images {
+  image: "/aResources/environment/png/red_base.png"
+}
+images {
+  image: "/aResources/environment/png/tower.png"
+}
+extrude_borders: 2

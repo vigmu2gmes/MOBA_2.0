@@ -1,0 +1,17 @@
+
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("collision_response") then
+
+		if message.other_group == hash("player") then
+			go.animate(".", "position", go.PLAYBACK_ONCE_FORWARD, go.get_position(message.other_id), go.EASING_LINEAR, 1)
+		elseif message.other_group == hash("blue_hitbox") then
+			go.delete()
+			-- message.other_id provide the instace + number (IE - "/instance0") for path to component
+			msg.post(msg.url("match", message.other_id, "blue_character_gui"), "hit", { hit = 5 })
+		elseif message.other_group == hash("red_hitbox") then
+			go.delete()
+			msg.post(msg.url("match", message.other_id, "red_character_gui"), "hit", { hit = 5 })
+		end
+	end
+end

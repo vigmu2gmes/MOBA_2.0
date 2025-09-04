@@ -1,0 +1,33 @@
+local function tower_activate()
+	msg.post("/tower#tower1_collider", "enable")
+	msg.post("/tower#tower_collider", "enable")
+end
+
+function init(self)
+	msg.post("#", "start_match")
+
+	timer.delay(1, true, tower_activate)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("start_match") then
+		factory.create("/characters#characters", vmath.vector3(100, 310, 0))
+	elseif message_id == hash("projectile") then
+		if message.pos == hash("tower_atk") then
+			factory.create("/projectile#projectile", vmath.vector3(563, 506, 0))
+			if message.d == false then
+				msg.post("/tower#tower_collider", "disable")				
+			end
+		elseif message.pos == hash("tower1_atk") then
+			factory.create("/projectile#projectile", vmath.vector3(563, 155, 0))
+			if message.d == false then
+				msg.post("/tower#tower1_collider", "disable")
+			end
+		end
+	end
+end
+	
+
+function update(self, dt)
+	
+end
